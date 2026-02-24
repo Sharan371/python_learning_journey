@@ -1,0 +1,56 @@
+students = []
+
+while True:
+    print("\n--- Student CRUD Menu ---")
+    print("1. Create Student")
+    print("2. Read Students")
+    print("3. Update Student")
+    print("4. Delete Student")
+    print("5. Exit")
+
+    choice = input("Enter your choice (1-5): ")
+
+    # CREATE
+    if choice == "1":
+        name = input("Enter student name: ")
+        age = int(input("Enter student age: "))
+        student = {"name": name, "age": age}
+        students.append(student)
+        print("Student Added Successfully")
+
+    # READ
+    elif choice == "2":
+        if not students:
+            print("No students found")
+        else:
+            print("\nStudent List:")
+            for i, student in enumerate(students):
+                print(f"{i}. Name: {student['name']}, Age: {student['age']}")
+
+    # UPDATE
+    elif choice == "3":
+        index = int(input("Enter student index to update: "))
+        if 0 <= index < len(students):
+            name = input("Enter new name: ")
+            age = int(input("Enter new age: "))
+            students[index] = {"name": name, "age": age}
+            print("Student Updated Successfully")
+        else:
+            print("Invalid Index")
+
+    # DELETE
+    elif choice == "4":
+        index = int(input("Enter student index to delete: "))
+        if 0 <= index < len(students):
+            students.pop(index)
+            print("Student Deleted Successfully")
+        else:
+            print("Invalid Index")
+
+    # EXIT
+    elif choice == "5":
+        print("Exiting Program...")
+        break
+
+    else:
+        print("Invalid Choice. Please enter 1-5.")
