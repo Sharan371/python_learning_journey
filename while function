@@ -1,0 +1,16 @@
+correct_password = "1234"
+attempts = 0
+
+while attempts < 3:
+    password = input("Enter ATM Password: ")
+
+    if password == correct_password:
+        print("Access Granted ✅")
+        break
+    else:
+        attempts += 1
+        print("Wrong Password ❌")
+        print("Attempts left:", 3 - attempts)
+
+if attempts == 3:
+    print("Card Blocked 🚫")
