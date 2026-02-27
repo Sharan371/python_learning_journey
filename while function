@@ -1,3 +1,5 @@
+#password attempts
+
 correct_password = "1234"
 attempts = 0
 
@@ -14,3 +16,26 @@ while attempts < 3:
 
 if attempts == 3:
     print("Card Blocked 🚫")
+
+#OTP generation
+import random
+
+# Generate 4-digit OTP
+otp = random.randint(1000, 9999)
+print("Your OTP is:", otp)   # In real apps, this is sent to mobile/email
+
+attempts = 3   # Maximum attempts
+
+while attempts > 0:
+    user_input = int(input("Enter the OTP: "))
+    
+    if user_input == otp:
+        print("✅ OTP Verified Successfully!")
+        break
+    else:
+        attempts -= 1
+        print(f"❌ Wrong OTP! Attempts left: {attempts}")
+
+if attempts == 0:
+    print("🚫 Too many failed attempts. Access Denied.")
+
